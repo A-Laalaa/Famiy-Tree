@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سياسة الخصوصية — شجرة العائلة</title>
+<meta name="description" content="سياسة الخصوصية الرسمية لتطبيق شجرة العائلة. تعرّف على البيانات التي نجمعها (الاسم والبريد الإلكتروني) وكيف نستخدمها ونحميها ولا نشاركها مع أي طرف ثالث.">
+<meta name="theme-color" content="#FAF7F2">
+
+<meta property="og:title" content="سياسة الخصوصية — شجرة العائلة">
+<meta property="og:description" content="بياناتك ملكك وحدك. اقرأ سياسة الخصوصية الكاملة لتطبيق شجرة العائلة.">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23B88E3E'/><circle cx='50' cy='30' r='12' fill='%23fff'/><circle cx='26' cy='72' r='10' fill='%23fff'/><circle cx='74' cy='72' r='10' fill='%23fff'/><path d='M50 42v14M26 62V56h48v6' stroke='%23fff' stroke-width='6' fill='none' stroke-linecap='round'/></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          beige:  '#FAF7F2',
+          sand:   '#F2EADF',
+          brown:  { DEFAULT: '#2C241D', soft: '#5B4B3A', muted: '#8A7963' },
+          gold:   { DEFAULT: '#B88E3E', light: '#D9B96E', dark: '#8E6B25' }
+        },
+        fontFamily: { tajawal: ['Tajawal', 'system-ui', 'sans-serif'] },
+        boxShadow: {
+          soft: '0 24px 60px -24px rgba(44,36,29,0.28)',
+          glow: '0 18px 40px -14px rgba(184,142,62,0.55)'
+        },
+        borderRadius: { '4xl': '2rem', '5xl': '2.75rem' }
+      }
+    }
+  }
+</script>
+
+<style>
+  html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+  body { -webkit-font-smoothing: antialiased; }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.58);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    box-shadow: 0 22px 50px -26px rgba(44, 36, 29, 0.30);
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(100deg, #B88E3E 0%, #D9B96E 45%, #8E6B25 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible { opacity: 1; transform: none; }
+
+  /* Content typography */
+  .policy-content h2 {
+    scroll-margin-top: 120px;
+  }
+  .policy-content h2::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 26px;
+    border-radius: 6px;
+    background: linear-gradient(180deg, #D9B96E, #B88E3E);
+    margin-inline-end: 12px;
+    vertical-align: middle;
+    transform: translateY(-2px);
+  }
+  .policy-content p,
+  .policy-content li {
+    line-height: 1.95;
+  }
+
+  /* Sticky ToC — active state via IntersectionObserver */
+  .toc-link {
+    position: relative;
+    transition: color .25s ease, background-color .25s ease;
+  }
+  .toc-link.is-active {
+    color: #8E6B25;
+    background: rgba(184, 142, 62, 0.10);
+    font-weight: 800;
+  }
+  .toc-link.is-active::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 60%;
+    border-radius: 999px;
+    background: #B88E3E;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  }
+</style>
+</head>
+
+<body class="bg-beige text-brown font-tajawal antialiased selection:bg-gold/25 selection:text-brown">
+
+<!-- ══════════════ HEADER (identical to landing) ══════════════ -->
+<header class="fixed top-0 inset-x-0 z-50">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6">
+    <nav class="mt-3 glass rounded-3xl px-4 sm:px-5 py-2.5 flex items-center justify-between gap-3">
+
+      <a href="index.html" class="flex items-center gap-2.5 shrink-0 group" aria-label="شجرة العائلة - الصفحة الرئيسية">
+        <span class="relative grid place-items-center w-10 h-10 rounded-2xl bg-gradient-to-br from-gold-light via-gold to-gold-dark shadow-glow transition-transform duration-300 group-hover:scale-105">
+          <svg viewBox="0 0 24 24" class="w-[22px] h-[22px] text-white" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="5" r="2.4"/>
+            <circle cx="6" cy="19" r="2.4"/>
+            <circle cx="18" cy="19" r="2.4"/>
+            <path d="M12 7.4v5.1M6 16.6v-4.1h12v4.1"/>
+          </svg>
+        </span>
+        <span class="text-[17px] sm:text-lg font-extrabold tracking-tight">شجرة العائلة</span>
+      </a>
+
+      <ul class="hidden md:flex items-center gap-1 text-[15px] font-medium">
+        <li><a href="index.html#home" class="px-4 py-2 rounded-xl text-brown hover:text-gold-dark hover:bg-white/60 transition-colors">الرئيسية</a></li>
+        <li><a href="index.html#features" class="px-4 py-2 rounded-xl text-brown hover:text-gold-dark hover:bg-white/60 transition-colors">المميزات</a></li>
+        <li><a href="privacy.html" class="px-4 py-2 rounded-xl text-gold-dark bg-white/60 font-semibold">سياسة الخصوصية</a></li>
+      </ul>
+
+      <div class="flex items-center gap-2">
+        <a href="index.html#download"
+           class="hidden sm:inline-flex items-center gap-2 rounded-full bg-gradient-to-br from-gold-light via-gold to-gold-dark px-5 py-2.5 text-sm font-bold text-white shadow-glow hover:shadow-[0_22px_45px_-12px_rgba(184,142,62,0.75)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300">
+          <svg viewBox="0 0 384 512" class="w-4 h-4 fill-current" aria-hidden="true">
+            <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+          </svg>
+          تحميل التطبيق
+        </a>
+
+        <button id="menuBtn" type="button" aria-label="فتح القائمة" aria-expanded="false" aria-controls="mobileMenu"
+                class="md:hidden grid place-items-center w-10 h-10 rounded-2xl bg-white/70 border border-white/80 text-brown hover:bg-white transition">
+          <svg id="menuIconOpen" viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+          <svg id="menuIconClose" viewBox="0 0 24 24" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobileMenu" class="hidden md:hidden mt-2 glass rounded-3xl p-2">
+      <ul class="flex flex-col text-[15px] font-semibold">
+        <li><a href="index.html#home" class="block px-4 py-3 rounded-2xl hover:bg-white/70 transition">الرئيسية</a></li>
+        <li><a href="index.html#features" class="block px-4 py-3 rounded-2xl hover:bg-white/70 transition">المميزات</a></li>
+        <li><a href="privacy.html" class="block px-4 py-3 rounded-2xl bg-white/70 text-gold-dark">سياسة الخصوصية</a></li>
+        <li><a href="terms.html" class="block px-4 py-3 rounded-2xl hover:bg-white/70 transition">شروط الاستخدام</a></li>
+        <li class="p-1.5">
+          <a href="index.html#download" class="flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-br from-gold-light via-gold to-gold-dark px-4 py-3 text-white shadow-glow">
+            <svg viewBox="0 0 384 512" class="w-4 h-4 fill-current" aria-hidden="true">
+              <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+            </svg>
+            تحميل التطبيق
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="relative overflow-hidden pt-32 pb-10 sm:pt-40 sm:pb-14">
+  <div class="pointer-events-none absolute inset-0 -z-10" aria-hidden="true">
+    <div class="absolute -top-32 -left-24 w-[440px] h-[440px] rounded-full bg-gold/20 blur-[120px]"></div>
+    <div class="absolute top-16 -right-32 w-[460px] h-[460px] rounded-full bg-[#D9C4A0]/45 blur-[130px]"></div>
+  </div>
+
+  <div class="mx-auto max-w-4xl px-4 sm:px-6 text-center">
+    <div class="reveal inline-flex items-center gap-2 rounded-full bg-white/70 border border-white/90 px-4 py-1.5 text-[13px] font-semibold text-brown-soft shadow-sm">
+      <svg viewBox="0 0 24 24" class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9.5 12l1.8 1.8 3.4-3.6"/>
+      </svg>
+      الشفافية أولاً
+    </div>
+
+    <h1 class="reveal mt-6 text-4xl sm:text-5xl lg:text-[3.25rem] font-black leading-[1.15] tracking-tight" style="transition-delay:80ms">
+      سياسة <span class="text-gradient-gold">الخصوصية</span>
+    </h1>
+
+    <p class="reveal mt-5 text-[16px] sm:text-lg leading-relaxed text-brown-soft max-w-2xl mx-auto" style="transition-delay:160ms">
+      نحن في تطبيق <strong class="text-brown">شجرة العائلة</strong> نلتزم بحماية خصوصيتك.
+      توضح هذه الصفحة بوضوح ما نجمعه من بيانات، وكيف نستخدمها، وكيف نحميها.
+    </p>
+
+    <div class="reveal mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[13.5px] font-semibold text-brown-muted" style="transition-delay:220ms">
+      <span class="inline-flex items-center gap-1.5">
+        <svg viewBox="0 0 24 24" class="w-4 h-4 text-gold" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 11h18"/></svg>
+        آخر تحديث: ١ يناير ٢٠٢٤
+      </span>
+      <span class="inline-flex items-center gap-1.5">
+        <svg viewBox="0 0 24 24" class="w-4 h-4 text-gold" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        قراءة تستغرق ~٦ دقائق
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CONTENT + TOC ══════════════ -->
+<section class="relative pb-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6">
+    <div class="grid lg:grid-cols-[260px,1fr] gap-8 lg:gap-10 items-start">
+
+      <!-- ── Table of Contents (desktop sticky) ── -->
+      <aside class="hidden lg:block sticky top-28" aria-label="فهرس المحتويات">
+        <div class="glass rounded-3xl p-4">
+          <p class="px-2 pb-2 text-[12px] font-extrabold uppercase tracking-wider text-brown-muted">محتويات الصفحة</p>
+          <nav>
+            <ul class="flex flex-col text-[13.5px] font-semibold text-brown-soft">
+              <li><a class="toc-link block px-3 py-2 rounded-xl hover:bg-white/70" href="#intro">١. مقدمة</a></li>
+              <li><a class="toc-link block px-3 py-2 rounded-xl hover:bg-white/70" href="#data">٢. البيانات التي نجمعها</a></li>
+              <li><a class="toc-link block px-3 py-2 rounded-xl hover:bg-white/70" href="#usage">٣. كيف نستخدم البيانات</a></li>
+              <li><a class="toc-link block px-3 py-2 rounded-xl hover:bg-white/70" href="#google">٤. بيانات حساب Google</a></li>
+              <li><a class="toc-link block px-3 py-2 rounded-xl hover:bg-white/70" href="#sharing">٥. مشاركة البيانات</a></li>
+              <li><a class="toc-link block px-3 py-2 rounded-xl hover:bg-white/70" href="#security">٦. التخزين والأمان</a></li>
+              <li><a class="toc-link block px-3 py-2 rounded-xl hover:bg-white/70" href="#rights">٧. حقوقك</a></li>
+              <li><a class="toc-link block px-3 py-2 rounded-xl hover:bg-white/70" href="#cookies">٨. ملفات تعريف الارتباط</a></li>
+              <li><a class="toc-link block px-3 py-2 rounded-xl hover:bg-white/70" href="#children">٩. خصوصية الأطفال</a></li>
+              <li><a class="toc-link block px-3 py-2 rounded-xl hover:bg-white/70" href="#changes">١٠. التغييرات على السياسة</a></li>
+              <li><a class="toc-link block px-3 py-2 rounded-xl hover:bg-white/70" href="#contact">١١. التواصل معنا</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="mt-4 rounded-3xl bg-gradient-to-br from-gold/15 to-gold/5 border border-gold/20 p-4">
+          <p class="text-[13px] font-extrabold text-gold-dark flex items-center gap-1.5">
+            <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>
+            باختصار
+          </p>
+          <p class="mt-2 text-[12.5px] leading-relaxed text-brown-soft">
+            نجمع فقط الاسم والبريد الإلكتروني. لا نبيع بياناتك ولا نشاركها مع أي طرف ثالث.
+          </p>
+        </div>
+      </aside>
+
+      <!-- ── Main content ── -->
+      <article class="policy-content glass rounded-[30px] p-6 sm:p-9 lg:p-11 reveal">
+
+        <!-- Mobile ToC -->
+        <details class="lg:hidden mb-8 rounded-2xl bg-white/70 border border-white p-4">
+          <summary class="cursor-pointer text-[14.5px] font-extrabold text-gold-dark">محتويات الصفحة</summary>
+          <ul class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-1 text-[13.5px] font-semibold text-brown-soft">
+            <li><a class="block py-1.5 hover:text-gold-dark" href="#intro">١. مقدمة</a></li>
+            <li><a class="block py-1.5 hover:text-gold-dark" href="#data">٢. البيانات التي نجمعها</a></li>
+            <li><a class="block py-1.5 hover:text-gold-dark" href="#usage">٣. كيف نستخدم البيانات</a></li>
+            <li><a class="block py-1.5 hover:text-gold-dark" href="#google">٤. بيانات حساب Google</a></li>
+            <li><a class="block py-1.5 hover:text-gold-dark" href="#sharing">٥. مشاركة البيانات</a></li>
+            <li><a class="block py-1.5 hover:text-gold-dark" href="#security">٦. التخزين والأمان</a></li>
+            <li><a class="block py-1.5 hover:text-gold-dark" href="#rights">٧. حقوقك</a></li>
+            <li><a class="block py-1.5 hover:text-gold-dark" href="#cookies">٨. ملفات تعريف الارتباط</a></li>
+            <li><a class="block py-1.5 hover:text-gold-dark" href="#children">٩. خصوصية الأطفال</a></li>
+            <li><a class="block py-1.5 hover:text-gold-dark" href="#changes">١٠. التغييرات</a></li>
+            <li><a class="block py-1.5 hover:text-gold-dark" href="#contact">١١. التواصل</a></li>
+          </ul>
+        </details>
+
+        <!-- INTRO -->
+        <section id="intro">
+          <h2 class="text-xl sm:text-2xl font-black text-brown">مقدمة</h2>
+          <p class="mt-4 text-[15.5px] text-brown-soft">
+            مرحباً بك في <strong class="text-brown">شجرة العائلة</strong> ("التطبيق"، "نحن"). هذه السياسة توضح الممارسات المتبعة
+            فيما يتعلق بجمع واستخدام وحماية بياناتك الشخصية عند استخدامك لتطبيق iOS الخاص بنا.
+          </p>
+          <p class="mt-3 text-[15.5px] text-brown-soft">
+            باستخدامك للتطبيق، فإنك توافق على الممارسات الموضحة في هذه السياسة. إذا كنت لا توافق على أي جزء منها،
+            نرجو منك عدم استخدام التطبيق.
+          </p>
+        </section>
+
+        <hr class="my-9 border-brown/10">
+
+        <!-- DATA -->
+        <section id="data">
+          <h2 class="text-xl sm:text-2xl font-black text-brown">البيانات التي نجمعها</h2>
+          <p class="mt-4 text-[15.5px] text-brown-soft">
+            نحن نجمع الحد الأدنى من البيانات اللازمة لتشغيل التطبيق بشكل صحيح. تشمل البيانات التي نجمعها:
+          </p>
+
+          <div class="mt-5 grid sm:grid-cols-2 gap-3.5">
+            <div class="rounded-2xl bg-white/70 border border-white p-4">
+              <div class="flex items-center gap-2">
+                <span class="grid place-items-center w-8 h-8 rounded-xl bg-gold/15 text-gold-dark">
+                  <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 016-6h4a6 6 0 016 6v1"/></svg>
+                </span>
+                <p class="text-[14.5px] font-extrabold text-brown">بيانات الحساب</p>
+              </div>
+              <p class="mt-2 text-[13.5px] leading-relaxed text-brown-soft">
+                الاسم المعروض والبريد الإلكتروني، التي يتم الحصول عليها عند تسجيل الدخول عبر حساب Google.
+              </p>
+            </div>
+
+            <div class="rounded-2xl bg-white/70 border border-white p-4">
+              <div class="flex items-center gap-2">
+                <span class="grid place-items-center w-8 h-8 rounded-xl bg-gold/15 text-gold-dark">
+                  <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.4"/><circle cx="6" cy="19" r="2.4"/><circle cx="18" cy="19" r="2.4"/><path d="M12 7.4v5.1M6 16.6v-4.1h12v4.1"/></svg>
+                </span>
+                <p class="text-[14.5px] font-extrabold text-brown">بيانات شجرة العائلة</p>
+              </div>
+              <p class="mt-2 text-[13.5px] leading-relaxed text-brown-soft">
+                أسماء أفراد العائلة، صلة القرابة، الصور والذكريات التي تضيفها بنفسك داخل التطبيق.
+              </p>
+            </div>
+          </div>
+
+          <p class="mt-5 text-[15.5px] text-brown-soft">
+            <strong class="text-brown">لا نجمع</strong> بيانات الموقع الجغرافي، جهات الاتصال، سجل التصفح، أو أي
+            بيانات غير ضرورية لتشغيل التطبيق.
+          </p>
+        </section>
+
+        <hr class="my-9 border-brown/10">
+
+        <!-- USAGE -->
+        <section id="usage">
+          <h2 class="text-xl sm:text-2xl font-black text-brown">كيف نستخدم بياناتك</h2>
+          <p class="mt-4 text-[15.5px] text-brown-soft">
+            نستخدم البيانات التي نجمعها للأغراض التالية حصراً:
+          </p>
+          <ul class="mt-4 space-y-2.5 text-[15px] text-brown-soft">
+            <li class="flex items-start gap-2.5">
+              <span class="mt-1.5 grid place-items-center w-4.5 h-4.5 w-[18px] h-[18px] shrink-0 rounded-full bg-gold/20 text-gold-dark">
+                <svg viewBox="0 0 24 24" class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              </span>
+              إنشاء حسابك وتأمين الدخول إليه.
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="mt-1.5 grid place-items-center w-[18px] h-[18px] shrink-0 rounded-full bg-gold/20 text-gold-dark">
+                <svg viewBox="0 0 24 24" class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              </span>
+              مزامنة شجرة عائلتك بين أجهزتك (عند تسجيل الدخول).
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="mt-1.5 grid place-items-center w-[18px] h-[18px] shrink-0 rounded-full bg-gold/20 text-gold-dark">
+                <svg viewBox="0 0 24 24" class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              </span>
+              إرسال إشعارات المناسبات والتذكيرات (أعياد الميلاد والذكريات).
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="mt-1.5 grid place-items-center w-[18px] h-[18px] shrink-0 rounded-full bg-gold/20 text-gold-dark">
+                <svg viewBox="0 0 24 24" class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              </span>
+              تحسين استقرار التطبيق ومعالجة الأخطاء الفنية (بشكل مجهول).
+            </li>
+          </ul>
+          <p class="mt-4 text-[15.5px] text-brown-soft">
+            <strong class="text-brown">لا نستخدم</strong> بياناتك لأي أغراض تسويقية، ولا نبيعها أو نؤجرها لأي جهة.
+          </p>
+        </section>
+
+        <hr class="my-9 border-brown/10">
+
+        <!-- GOOGLE -->
+        <section id="google">
+          <h2 class="text-xl sm:text-2xl font-black text-brown">بيانات حساب Google (OAuth)</h2>
+          <p class="mt-4 text-[15.5px] text-brown-soft">
+            يتيح التطبيق تسجيل الدخول باستخدام حساب Google. عند قيامك بذلك، نطلب صلاحية الوصول إلى:
+          </p>
+          <ul class="mt-4 space-y-2 text-[15px] text-brown-soft">
+            <li class="flex items-start gap-2.5">
+              <span class="mt-2 w-1.5 h-1.5 shrink-0 rounded-full bg-gold"></span>
+              <span><strong class="text-brown">الاسم والبريد الإلكتروني</strong> — لإنشاء حسابك داخل التطبيق وربط شجرتك بحسابك.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="mt-2 w-1.5 h-1.5 shrink-0 rounded-full bg-gold"></span>
+              <span><strong class="text-brown">المعرّف الفريد (Google ID)</strong> — للتمييز بين الحسابات بأمان.</span>
+            </li>
+          </ul>
+
+          <div class="mt-5 rounded-2xl bg-emerald-500/8 border border-emerald-500/20 p-4">
+            <p class="text-[13.5px] leading-relaxed text-brown-soft">
+              <strong class="text-emerald-700">التزام بسياسة Google:</strong>
+              استخدامنا للمعلومات الواردة من واجهات Google يتوافق مع
+              <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer"
+                 class="font-bold text-gold-dark underline decoration-gold/40 hover:decoration-gold underline-offset-4 transition-colors">
+                سياسة بيانات مستخدم خدمات Google API
+              </a>
+              ، بما في ذلك متطلبات الاستخدام المحدود (Limited Use).
+              لا نستخدم بيانات Google لأي غرض آخر غير المذكور أعلاه.
+            </p>
+          </div>
+        </section>
+
+        <hr class="my-9 border-brown/10">
+
+        <!-- SHARING -->
+        <section id="sharing">
+          <h2 class="text-xl sm:text-2xl font-black text-brown">مشاركة البيانات</h2>
+          <p class="mt-4 text-[15.5px] text-brown-soft">
+            <strong class="text-brown">نحن لا نبيع، ولا نؤجر، ولا نشارك بياناتك الشخصية مع أي طرف ثالث.</strong>
+            البيانات تُستخدم فقط لتقديم خدمة التطبيق.
+          </p>
+          <p class="mt-3 text-[15.5px] text-brown-soft">
+            الاستثناء الوحيد هو إذا كان ذلك مطلوباً بموجب القانون أو بأمر قضائي من جهة مختصة، وفي هذه الحالة
+            سنُخطرك قدر الإمكان قبل الإفصاح.
+          </p>
+        </section>
+
+        <hr class="my-9 border-brown/10">
+
+        <!-- SECURITY -->
+        <section id="security">
+          <h2 class="text-xl sm:text-2xl font-black text-brown">التخزين والأمان</h2>
+          <p class="mt-4 text-[15.5px] text-brown-soft">
+            <strong class="text-brown">التخزين المحلي أولاً:</strong> يعمل التطبيق دون إنترنت، ويتم تخزين بياناتك
+            على جهازك أولاً بشكل افتراضي.
+          </p>
+          <p class="mt-3 text-[15.5px] text-brown-soft">
+            <strong class="text-brown">المزامنة الآمنة:</strong> عند تفعيل المزامنة عبر حسابك، تُنقل البيانات
+            باستخدام اتصال مشفّر (HTTPS/TLS) وتُخزّن على خدمات سحابية موثوقة.
+          </p>
+          <p class="mt-3 text-[15.5px] text-brown-soft">
+            <strong class="text-brown">الحماية:</strong> نتخذ إجراءات تقنية وإدارية معقولة لحماية بياناتك من
+            الوصول غير المصرح به أو الفقدان. ومع ذلك، لا يمكن ضمان الأمان المطلق لأي نظام.
+          </p>
+        </section>
+
+        <hr class="my-9 border-brown/10">
+
+        <!-- RIGHTS -->
+        <section id="rights">
+          <h2 class="text-xl sm:text-2xl font-black text-brown">حقوقك</h2>
+          <p class="mt-4 text-[15.5px] text-brown-soft">
+            لك في أي وقت الحق في:
+          </p>
+          <ul class="mt-4 space-y-2.5 text-[15px] text-brown-soft">
+            <li class="flex items-start gap-2.5">
+              <span class="mt-1.5 grid place-items-center w-[18px] h-[18px] shrink-0 rounded-full bg-gold/20 text-gold-dark">
+                <svg viewBox="0 0 24 24" class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              </span>
+              <span><strong class="text-brown">الاطلاع</strong> على البيانات التي نحتفظ بها عنك.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="mt-1.5 grid place-items-center w-[18px] h-[18px] shrink-0 rounded-full bg-gold/20 text-gold-dark">
+                <svg viewBox="0 0 24 24" class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              </span>
+              <span><strong class="text-brown">تصحيح</strong> أي بيانات غير دقيقة.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="mt-1.5 grid place-items-center w-[18px] h-[18px] shrink-0 rounded-full bg-gold/20 text-gold-dark">
+                <svg viewBox="0 0 24 24" class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              </span>
+              <span><strong class="text-brown">حذف حسابك</strong> وجميع بياناتك نهائياً (عبر إعدادات التطبيق أو بمراسلتنا).</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="mt-1.5 grid place-items-center w-[18px] h-[18px] shrink-0 rounded-full bg-gold/20 text-gold-dark">
+                <svg viewBox="0 0 24 24" class="w-2.5 h-2.5" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              </span>
+              <span><strong class="text-brown">سحب الموافقة</strong> على معالجة البيانات في أي وقت.</span>
+            </li>
+          </ul>
+          <p class="mt-4 text-[15.5px] text-brown-soft">
+            لتنفيذ أي من هذه الحقوق، راسلنا على البريد الموضح في قسم التواصل أدناه، وسنستجيب خلال
+            مدة أقصاها ٣٠ يوماً.
+          </p>
+        </section>
+
+        <hr class="my-9 border-brown/10">
+
+        <!-- COOKIES -->
+        <section id="cookies">
+          <h2 class="text-xl sm:text-2xl font-black text-brown">ملفات تعريف الارتباط والتتبّع</h2>
+          <p class="mt-4 text-[15.5px] text-brown-soft">
+            تطبيق iOS الخاص بنا <strong class="text-brown">لا يستخدم</strong> ملفات تعريف ارتباط (Cookies) أو
+            أدوات تتبّع إعلانية من أي نوع.
+          </p>
+          <p class="mt-3 text-[15.5px] text-brown-soft">
+            قد يستخدم موقعنا التعريفي (هذه الصفحة) أدوات تحليل أساسية مجهولة الهوية لقياس الأداء فقط،
+            ولا تحتفظ بأي بيانات شخصية.
+          </p>
+        </section>
+
+        <hr class="my-9 border-brown/10">
+
+        <!-- CHILDREN -->
+        <section id="children">
+          <h2 class="text-xl sm:text-2xl font-black text-brown">خصوصية الأطفال</h2>
+          <p class="mt-4 text-[15.5px] text-brown-soft">
+            التطبيق غير موجّه للأطفال تحت سن ١٣ عاماً، ولا نجمع بياناتهم عن قصد. إذا اكتشفنا أن طفلاً
+            دون ١٣ عاماً قد أنشأ حساباً، سنحذف البيانات فوراً. يمكن لولي الأمر مراسلتنا لإجراء ذلك.
+          </p>
+        </section>
+
+        <hr class="my-9 border-brown/10">
+
+        <!-- CHANGES -->
+        <section id="changes">
+          <h2 class="text-xl sm:text-2xl font-black text-brown">التغييرات على السياسة</h2>
+          <p class="mt-4 text-[15.5px] text-brown-soft">
+            قد نقوم بتحديث سياسة الخصوصية من وقت لآخر لتعكس التغييرات في ممارساتنا أو لأسباب قانونية أو
+            تنظيمية. سيتم تحديث تاريخ "آخر تحديث" في أعلى الصفحة، وفي حال إجراء تغييرات جوهرية،
+            سنُخطرك داخل التطبيق أو عبر البريد الإلكتروني.
+          </p>
+          <p class="mt-3 text-[15.5px] text-brown-soft">
+            استمرارك في استخدام التطبيق بعد نشر التحديثات يعني موافقتك على السياسة المعدّلة.
+          </p>
+        </section>
+
+        <hr class="my-9 border-brown/10">
+
+        <!-- CONTACT -->
+        <section id="contact">
+          <h2 class="text-xl sm:text-2xl font-black text-brown">التواصل معنا</h2>
+          <p class="mt-4 text-[15.5px] text-brown-soft">
+            إذا كان لديك أي سؤال أو استفسار حول سياسة الخصوصية أو ممارسات البيانات لدينا، يُسعدنا تواصلك معنا:
+          </p>
+
+          <a href="mailto:Laalaa.Dev@gmail.com"
+             class="mt-5 inline-flex items-center gap-2.5 rounded-2xl bg-gradient-to-br from-gold-light via-gold to-gold-dark px-6 py-4 text-[15px] font-extrabold text-white shadow-glow hover:shadow-[0_26px_55px_-14px_rgba(184,142,62,0.8)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300">
+            <svg viewBox="0 0 24 24" class="w-[18px] h-[18px] shrink-0" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="3"/><path d="M2.5 6.5L12 13l9.5-6.5"/>
+            </svg>
+            Laalaa.Dev@gmail.com
+          </a>
+
+          <p class="mt-4 text-[13px] text-brown-muted">
+            نرد عادةً خلال ٢٤–٤٨ ساعة.
+          </p>
+        </section>
+
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════ BACK CTA ══════════════ -->
+<section class="pb-24">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6">
+    <div class="reveal glass rounded-[30px] p-7 sm:p-10 text-center">
+      <h2 class="text-2xl sm:text-3xl font-black leading-tight">
+        هل أنت مستعد لحفظ <span class="text-gradient-gold">تاريخ عائلتك؟</span>
+      </h2>
+      <p class="mt-3 text-[15.5px] text-brown-soft">
+        حمّل التطبيق وابدأ بشجرة عائلتك اليوم — مجاناً، وبخصوصية تامة.
+      </p>
+      <div class="mt-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3">
+        <a href="index.html#download"
+           class="inline-flex items-center justify-center gap-2.5 rounded-full bg-gradient-to-br from-gold-light via-gold to-gold-dark px-7 py-3.5 text-[15px] font-extrabold text-white shadow-glow hover:shadow-[0_26px_55px_-14px_rgba(184,142,62,0.8)] hover:-translate-y-0.5 transition-all duration-300">
+          <svg viewBox="0 0 384 512" class="w-4 h-4 fill-current" aria-hidden="true">
+            <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+          </svg>
+          تحميل التطبيق
+        </a>
+        <a href="index.html"
+           class="inline-flex items-center justify-center gap-2 rounded-full bg-white/70 border border-white px-7 py-3.5 text-[15px] font-bold text-brown hover:bg-white transition-all duration-300">
+          العودة إلى الرئيسية
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<!-- ══════════════ FOOTER (identical to landing) ══════════════ -->
+<footer class="bg-brown text-white/80">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 py-14">
+
+    <div class="grid gap-10 md:grid-cols-3 md:items-start">
+
+      <div>
+        <div class="flex items-center gap-2.5">
+          <span class="grid place-items-center w-10 h-10 rounded-2xl bg-gradient-to-br from-gold-light via-gold to-gold-dark shadow-glow">
+            <svg viewBox="0 0 24 24" class="w-[22px] h-[22px] text-white" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="5" r="2.4"/><circle cx="6" cy="19" r="2.4"/><circle cx="18" cy="19" r="2.4"/>
+              <path d="M12 7.4v5.1M6 16.6v-4.1h12v4.1"/>
+            </svg>
+          </span>
+          <span class="text-lg font-extrabold text-white">شجرة العائلة</span>
+        </div>
+        <p class="mt-4 text-[14px] leading-relaxed text-white/60 max-w-xs">
+          تطبيق iOS لحفظ تاريخ عائلتك، توثيق الأنساب، وحفظ الذكريات — يعمل دون إنترنت.
+        </p>
+      </div>
+
+      <nav aria-label="روابط التذييل">
+        <h3 class="text-[13px] font-extrabold uppercase tracking-wider text-white/50">روابط مهمة</h3>
+        <ul class="mt-4 space-y-2.5 text-[14.5px] font-medium">
+          <li><a href="index.html#home" class="hover:text-gold-light transition-colors">الرئيسية</a></li>
+          <li><a href="index.html#features" class="hover:text-gold-light transition-colors">المميزات</a></li>
+          <li><a href="privacy.html" class="hover:text-gold-light transition-colors font-semibold text-gold-light/90">سياسة الخصوصية</a></li>
+          <li><a href="terms.html" class="hover:text-gold-light transition-colors">شروط الاستخدام</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h3 class="text-[13px] font-extrabold uppercase tracking-wider text-white/50">تواصل معنا</h3>
+        <a href="mailto:Laalaa.Dev@gmail.com"
+           class="mt-4 inline-flex items-center gap-2.5 rounded-2xl bg-white/8 border border-white/12 px-4 py-3 text-[14.5px] font-semibold text-white hover:bg-white/14 transition-colors">
+          <svg viewBox="0 0 24 24" class="w-[18px] h-[18px] text-gold-light" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="3"/><path d="M2.5 6.5L12 13l9.5-6.5"/>
+          </svg>
+          Laalaa.Dev@gmail.com
+        </a>
+        <p class="mt-4 text-[13px] leading-relaxed text-white/50">
+          نرد على استفساراتك خلال ٢٤–٤٨ ساعة.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="mt-12 pt-7 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-[13px] text-white/50">
+      <p>Copyright © 2024 FamilyTree. All rights reserved.</p>
+      <p class="flex items-center gap-1.5">
+        صُنع بعناية
+        <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 text-gold-light fill-current" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9A5.6 5.6 0 0112 5.3 5.6 5.6 0 0121.6 12c-2.1 4.4-9.6 9-9.6 9z"/></svg>
+        لعائلاتنا
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+
+<script>
+  // ── Mobile menu toggle ──
+  (function () {
+    const btn   = document.getElementById('menuBtn');
+    const menu  = document.getElementById('mobileMenu');
+    const openI = document.getElementById('menuIconOpen');
+    const closeI = document.getElementById('menuIconClose');
+    if (!btn || !menu) return;
+
+    const setState = (open) => {
+      menu.classList.toggle('hidden', !open);
+      openI.classList.toggle('hidden', open);
+      closeI.classList.toggle('hidden', !open);
+      btn.setAttribute('aria-expanded', String(open));
+      btn.setAttribute('aria-label', open ? 'إغلاق القائمة' : 'فتح القائمة');
+    };
+
+    btn.addEventListener('click', () => setState(menu.classList.contains('hidden')));
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setState(false)));
+    document.addEventListener('click', (e) => {
+      if (!menu.contains(e.target) && !btn.contains(e.target)) setState(false);
+    });
+    window.addEventListener('resize', () => { if (window.innerWidth >= 768) setState(false); });
+  })();
+
+  // ── Scroll reveal ──
+  (function () {
+    const items = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      items.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    items.forEach(el => io.observe(el));
+  })();
+
+  // ── ToC active link highlighting ──
+  (function () {
+    const links = Array.from(document.querySelectorAll('.toc-link'));
+    const sections = links
+      .map(l => document.querySelector(l.getAttribute('href')))
+      .filter(Boolean);
+    if (!sections.length || !('IntersectionObserver' in window)) return;
+
+    const setActive = (id) => {
+      links.forEach(l => l.classList.toggle('is-active', l.getAttribute('href') === '#' + id));
+    };
+
+    const io = new IntersectionObserver((entries) => {
+      // Pick the entry closest to the top of the viewport that is intersecting
+      const visible = entries.filter(e => e.isIntersecting)
+        .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+      if (visible.length) setActive(visible[0].target.id);
+    }, { rootMargin: '-30% 0px -55% 0px', threshold: 0 });
+
+    sections.forEach(s => io.observe(s));
+  })();
+</script>
+
+</body>
+</html>
